@@ -1,5 +1,3 @@
-//https://pokeapi.co/api/v2/pokemon/ditto
-//https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png -->img
 /* Ele ejercicio es q maqueten un fron para mostrar los pokemones de https://pokeapi.co/api/v2/pokemon 
 y la foto que sea el svg que aparece en el enpoint de pokemon individual, ubicar datos de peso, 
 altura y demas datos que consideren de interes para un usuario
@@ -36,20 +34,13 @@ const getPokemonesGeneral = async (ev) => {
     const API_URL = `https://pokeapi.co/api/v2/pokemon/?limit=20&offset=${offsetPokemon}`
     const pokemons = await getAllPokemons(API_URL);
     
-    //retrieve all urls
-    const pokemonPromises = await pokemons.results.map (async pokemonPromise => {
-        return {
-            url: pokemonPromise.url
-        }
-    })
-    const pokemonPromisesJson = await Promise.all(pokemonPromises)
-    
     //create array with each pokemon
-    const pokemonUrls = await pokemonPromisesJson.map (async pokemon => {
+    const pokemonUrls = await pokemons.results.map (async pokemon => {
         const pokemonData = await getAllPokemons(pokemon.url)
         return {
+            id: pokemonData.id,
             name: pokemonData.name,
-            picture: pokemonData.sprites.front_default,
+            picture: pokemonData.sprites.other.dream_world.front_default,
             weight: pokemonData.weight,
             height: pokemonData.height
         }
@@ -63,7 +54,7 @@ const getPokemonesGeneral = async (ev) => {
         const divBase = document.createElement('div');
         divBase.classList.add('pokemon');
         divBase.innerHTML = `
-        <h2 class="namePokemon">${poke.name.toUpperCase()}</h2>
+        <h2 class="namePokemon">${poke.name.toUpperCase()} (${poke.id})</h2>
         <div class="image">
         <img class="imagePokemon" src="${poke.picture}" alt="${poke.name}">
     </div>

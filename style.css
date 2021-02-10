@@ -15,11 +15,12 @@
 .pokemon {
     border: 8px solid rgb(236, 221, 6);
     box-sizing: border-box;
+    border-radius: 25px;
 }
 
 .image > img {
     box-sizing: border-box;
-    height: 15%;
+    height: 40vh;
     width: 21.2vw;
     background: radial-gradient(circle, rgba(241,207,2,1) 40%, rgba(223,48,10,1) 73%);
     border: none;
