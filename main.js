@@ -65,7 +65,7 @@ const getPokemonesGeneral = async (ev) => {
         divBase.innerHTML = `
         <h2 class="namePokemon">${poke.name.toUpperCase()}</h2>
         <div class="image">
-        <img src="${poke.picture}" alt="${poke.name}">
+        <img class="imagePokemon" src="${poke.picture}" alt="${poke.name}">
     </div>
     <div class="infoPokemon">
         <ul>

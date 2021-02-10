@@ -44,10 +44,10 @@ ul {
 }
 
 .verMas > img {
-    height: 5rem;
-    width: auto;
-    padding-left: 46.5vw;
-    padding-top: 2rem;
+    height: 4rem;
+    width: 4rem;
+    padding-left: calc(50vw - 2rem);
+    padding-top: 0.5rem;
 }
 
 
