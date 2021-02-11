@@ -6,7 +6,6 @@
 .container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(5, 1fr);
     grid-gap: 2.5vw;
     padding: 10px;
     box-sizing: border-box;
@@ -16,6 +15,9 @@
     border: 8px solid rgb(236, 221, 6);
     box-sizing: border-box;
     border-radius: 25px;
+}
+.container.favoritos button {
+    display: none;
 }
 
 .image > img {
